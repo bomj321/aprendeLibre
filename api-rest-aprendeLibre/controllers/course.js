@@ -85,25 +85,25 @@ let controller = {
       user: userId,
     })
       .sort([["exp", "descending"]])
-      .exec((err, topics) => {
+      .exec((err, courses) => {
         if (err) {
           return res.status(500).send({
             status: "error",
-            message: "ERROR_GET_TASKS",
+            message: "ERROR_GET_COURSES",
           });
         }
 
-        if (!topics || topics.length == 0) {
+        if (!courses || courses.length == 0) {
           return res.status(404).send({
             status: "error",
-            message: "NOT_TOPICS",
+            message: "NOT_COURSES",
           });
         }
 
         //Return response
         return res.status(200).send({
           status: "success",
-          topics,
+          courses,
         });
       });
   },
@@ -258,7 +258,7 @@ let controller = {
       };
     }
 
-    Course.paginate(extendOption, options, (err, tasks) => {
+    Course.paginate(extendOption, options, (err, courses) => {
       if (err != null) {
         return res.status(500).send({
           status: "error",
@@ -266,19 +266,19 @@ let controller = {
         });
       }
 
-      if (!tasks) {
+      if (!courses) {
         return res.status(404).send({
           status: "error",
-          message: "No hay temas disponibles",
+          message: "No hay cursos disponibles",
         });
       }
 
       //return response
       return res.status(200).send({
         status: "success",
-        tasks: tasks.docs,
-        totalDocs: tasks.totalDocs,
-        totalPages: tasks.totalPages,
+        courses: courses.docs,
+        totalDocs: courses.totalDocs,
+        totalPages: courses.totalPages,
       });
     });
   },

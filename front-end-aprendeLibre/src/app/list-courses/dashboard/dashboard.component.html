@@ -40,24 +40,45 @@
             <thead>
               <tr>
                 <th scope="col" class="text-center">Título</th>
+                <th scope="col" class="text-center row-not-essential">
+                  Descripción
+                </th>
+                <th scope="col" class="text-center row-not-essential">
+                  Usuario
+                </th>
+                <th scope="col" class="text-center row-not-essential-sm">
+                  Email
+                </th>
                 <th scope="col" class="text-center">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let task of courses.courses; let i = index">
-                <td class="text-center">{{ task.title }}</td>
-
+              <tr *ngFor="let course of courses.courses; let i = index">
+                <td class="text-center">{{ course.title }}</td>
+                <td class="text-center row-not-essential">
+                  {{
+                    course.content && course.content.length > 50
+                      ? course.content.substring(0, 50) + "..."
+                      : course.content
+                  }}
+                </td>
+                <td scope="col" class="text-center row-not-essential">
+                  {{ currentUser.fullName }}
+                </td>
+                <td scope="col" class="text-center row-not-essential-sm">
+                  {{ currentUser.email }}
+                </td>
                 <td class="text-center">
                   <button
                     class="btn btn-sm btn-primary mr-1"
-                    (click)="openModalTask(task)"
+                    (click)="openModalTask(course)"
                   >
                     <i class="fa fa-pencil"></i>
                   </button>
                   <!-- -->
                   <button
                     class="btn btn-sm btn-danger"
-                    (click)="deleteTask(task._id)"
+                    (click)="deleteTask(course._id)"
                   >
                     <i class="fa fa-trash"></i>
                   </button>
