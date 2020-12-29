@@ -1,0 +1,94 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" [ngClass]="
+    {
+        'defaultdark': color == 'defaultdark',
+        'greendark': color == 'greendark',
+        'reddark': color == 'reddark',
+        'bluedark': color == 'bluedark',
+        'purpledark': color == 'purpledark',
+        'megnadark': color == 'megnadark',
+        'default': color == 'default',
+        'green': color == 'green',
+        'red': color == 'red',
+        'blue': color == 'blue',
+        'purple': color == 'purple',
+        'megna': color == 'megna', 
+        'mini-sidebar': showMinisidebar,
+        'dark-theme': showDarktheme,
+        'horizontal-nav': showHorizontalNav,
+        'boxed': showBoxedtheme
+    }
+">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">                   
+                    <span>
+                        <!-- dark Logo text -->
+                        <img src="assets/images/evolution.png" alt="homepage" class="dark-logo mb-1" />
+                        <!-- Light Logo text -->
+                        <img src="assets/images/evolution.png" class="light-logo mb-1" alt="homepage" />
+                    </span>
+                </a>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse">
+                <app-navigation class="w-100" (toggleSidebar)="toggleSidebar()"></app-navigation>
+            </div>
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar">
+        <app-sidebar></app-sidebar>
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <app-breadcrumb></app-breadcrumb>
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <router-outlet></router-outlet>
+            <!-- ============================================================== -->
+            <!-- End Start Page Content -->
+            <!-- ============================================================== -->
+ 
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer">
+        © 2020 by José Ortega
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+
+</div>

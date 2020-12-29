@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+.table-data-general {
+
+    th {
+      font-weight: bold !important;
+      color: #1E6BB8 !important;
+    }
+  
+    .table-striped>tbody>tr:nth-child(2n+1) {
+      background-color: rgba(3, 169, 244, 0.1) !important;
+    }
+  
+  
+  }
+  
+  .table-data-general-tasks {
+    td {
+      min-width: 120px;
+    }
+  }
+
+.pointer
+{
+  cursor: pointer !important;
+}
+
+.fa-custom
+{
+  font-size: 30px !important;
+}
+
+@media (min-width: 768px){
+    .navbar-expand-md .navbar-nav .dropdown-menu {
+        left: -203px !important;
+    }
+}
+
+@media (min-width: 769px)
+{
+    .horizontal-nav .sidebar-nav #sidebarnav > li:last-child > ul {
+        right:  auto !important;
+        left: auto !important;
+    }
+    
+}
+
