@@ -1,25 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TasksModalComponent } from './tasks-modal.component';
+import { CoursesModalComponent } from './courses-modal.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthenticationService } from "../../services/authentication.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
-describe('TasksModalComponent', () => {
-  let component: TasksModalComponent;
-  let fixture: ComponentFixture<TasksModalComponent>;
+describe('CoursesModalComponent', () => {
+  let component: CoursesModalComponent;
+  let fixture: ComponentFixture<CoursesModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TasksModalComponent],
+      declarations: [CoursesModalComponent],
       providers:
-      [       
-        AuthenticationService    ,
-        NgbActiveModal
-      ],
+        [
+          AuthenticationService,
+          NgbActiveModal
+        ],
       imports: [HttpClientTestingModule,
         NgbModule.forRoot(),
         RouterTestingModule,
@@ -32,7 +32,7 @@ describe('TasksModalComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TasksModalComponent);
+    fixture = TestBed.createComponent(CoursesModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

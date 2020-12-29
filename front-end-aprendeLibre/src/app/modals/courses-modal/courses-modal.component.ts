@@ -2,7 +2,7 @@ import { Component, OnInit, Injectable, Input, Output, EventEmitter } from '@ang
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDate, NgbCalendar, NgbDateParserFormatter, NgbDatepickerI18n, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { GeneralFunctionsService } from '@app/services/general-functions.service'
-import { TaskService } from "../../services/task.service";
+import { CourseService } from "../../services/course.service";
 
 declare var jQuery: any;
 declare var $: any;
@@ -76,14 +76,14 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
 }
 
 @Component({
-  selector: 'app-tasks-modal',
-  templateUrl: './tasks-modal.component.html',
-  styleUrls: ['./tasks-modal.component.scss'],
+  selector: 'app-courses-modal',
+  templateUrl: './courses-modal.component.html',
+  styleUrls: ['./courses-modal.component.scss'],
   providers: [
-    TaskService
+    CourseService
   ]
 })
-export class TasksModalComponent implements OnInit {
+export class CoursesModalComponent implements OnInit {
 
   @Output() onSaveTask = new EventEmitter();
   @Input() taskInformation = null;
@@ -112,7 +112,7 @@ export class TasksModalComponent implements OnInit {
     private calendar: NgbCalendar,
     public formatter: NgbDateParserFormatter,
     private generalFunctionsService: GeneralFunctionsService,
-    private taskService: TaskService
+    private courseService: CourseService
   ) { }
 
 
@@ -249,21 +249,21 @@ export class TasksModalComponent implements OnInit {
 
 
   saveContentService(objectRequest) {
-    this.taskService.saveTask(objectRequest).subscribe(
+    this.courseService.saveCourse(objectRequest).subscribe(
       data => {
         if (data && data['message'] == 'DATA_INCOMPLETE') {
           this.generalFunctionsService.notifications('Disculpa pero tienes datos faltantes', 'error');
         } else if (data && data['message'] == 'NOT_VALID_VALIDATION') {
           this.generalFunctionsService.notifications('Disculpa pero tienes datos faltantes', 'error');
         } else {
-          this.generalFunctionsService.notifications('Tarea añadida con éxito', 'success');
+          this.generalFunctionsService.notifications('Curso añadido con éxito', 'success');
           this.close();
           this.onSaveTask.emit('SAVED');
         }
         this.loading = false;
       },
       error => {
-        this.generalFunctionsService.notifications('Ha ocurrido un error al guardar la tarea, por favor contacte con el administrador', 'error');
+        this.generalFunctionsService.notifications('Ha ocurrido un error al guardar el curso, por favor contacte con el administrador', 'error');
         this.loading = false;
 
       }
@@ -271,20 +271,20 @@ export class TasksModalComponent implements OnInit {
   }
 
   editContentService(objectRequest, taskInformation) {
-    this.taskService.updateTask(objectRequest, taskInformation._id).subscribe(data => {
+    this.courseService.updateCourse(objectRequest, taskInformation._id).subscribe(data => {
 
       if (data && data['message'] == 'DATA_INCOMPLETE') {
         this.generalFunctionsService.notifications('Disculpa pero tienes datos faltantes', 'error');
       } else if (data && data['message'] == 'NOT_VALID_VALIDATION') {
         this.generalFunctionsService.notifications('Disculpa pero tienes datos faltantes', 'error');
       } else {
-        this.generalFunctionsService.notifications('Tarea editada con éxito', 'success');
+        this.generalFunctionsService.notifications('Curso editado con éxito', 'success');
         this.close();
         this.onSaveTask.emit('UPDATED');
       }
       this.loading = false;
     }, error => {
-      this.generalFunctionsService.notifications('Ha ocurrido un error al editar la tarea, por favor contacte con el administrador', 'error');
+      this.generalFunctionsService.notifications('Ha ocurrido un error al editar el curso, por favor contacte con el administrador', 'error');
       this.loading = false;
 
     })

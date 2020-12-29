@@ -14,13 +14,13 @@
         type="text"
         [(ngModel)]="searchParams"
         placeholder="Buscar..."
-        (keyup.enter)="getTasks(1, searchParams)"
+        (keyup.enter)="getCourses(1, searchParams)"
       />
       <div class="input-group-append">
         <button
           class="btn btn-info"
           type="button"
-          (click)="getTasks(1, searchParams)"
+          (click)="getCourses(1, searchParams)"
         >
           <i class="fa fa-search"></i>
         </button>
@@ -30,11 +30,11 @@
 </div>
 
 <div class="row mt-3">
-  <div class="col-lg-12" *ngIf="tasks && tasks.totalDocs > 0">
+  <div class="col-lg-12" *ngIf="courses && courses.totalDocs > 0">
     <div class="card">
       <div class="card-body">
         <div
-          class="table-responsive table-data-general table-data-general-tasks"
+          class="table-responsive table-data-general table-data-general-courses"
         >
           <table class="table table-striped">
             <thead>
@@ -46,7 +46,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let task of tasks.tasks; let i = index">
+              <tr *ngFor="let task of courses.courses; let i = index">
                 <td class="text-center">{{ task.title }}</td>
                 <td class="text-center">
                   <span
@@ -93,14 +93,14 @@
           </table>
         </div>
 
-        <div class="row" *ngIf="tasks?.totalDocs > 0">
+        <div class="row" *ngIf="courses?.totalDocs > 0">
           <div class="col-12">
             <ngb-pagination
               class="d-flex justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-sm-center justify-content-center mt-3"
-              [collectionSize]="tasks.totalDocs"
+              [collectionSize]="courses.totalDocs"
               [(page)]="page"
               [maxSize]="5"
-              (pageChange)="getTasks(page, searchParams)"
+              (pageChange)="getCourses(page, searchParams)"
               [pageSize]="pageSize"
               [boundaryLinks]="true"
               size="sm"
@@ -112,7 +112,7 @@
     </div>
   </div>
 
-  <div class="col-12" *ngIf="tasks?.totalDocs == 0">
-    <h3 class="text-center mt-5 font-weight-bold">Sin tareas regístradas</h3>
+  <div class="col-12" *ngIf="courses?.totalDocs == 0">
+    <h3 class="text-center mt-5 font-weight-bold">Sin cursos registrados</h3>
   </div>
 </div>
