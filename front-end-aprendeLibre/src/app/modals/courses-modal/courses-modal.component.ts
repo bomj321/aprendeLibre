@@ -1,79 +1,11 @@
 import { Component, OnInit, Injectable, Input, Output, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDate, NgbCalendar, NgbDateParserFormatter, NgbDatepickerI18n, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { GeneralFunctionsService } from '@app/services/general-functions.service'
 import { CourseService } from "../../services/course.service";
 
 declare var jQuery: any;
 declare var $: any;
 
-const I18N_VALUES = {
-  'es': {
-    weekdays: ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do'],
-    months: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-  }
-  // other languages you would support
-};
-
-// Define a service holding the language. You probably already have one if your app is i18ned. Or you could also
-// use the Angular LOCALE_ID value
-@Injectable()
-export class I18n {
-  language = 'es';
-}
-
-// Define custom service providing the months and weekdays translations
-@Injectable()
-export class CustomDatepickerI18n extends NgbDatepickerI18n {
-
-  constructor(private _i18n: I18n) {
-    super();
-  }
-
-  getWeekdayShortName(weekday: number): string {
-    return I18N_VALUES[this._i18n.language].weekdays[weekday - 1];
-  }
-  getMonthShortName(month: number): string {
-    return I18N_VALUES[this._i18n.language].months[month - 1];
-  }
-  getMonthFullName(month: number): string {
-    return this.getMonthShortName(month);
-  }
-
-  getDayAriaLabel(date: NgbDateStruct): string {
-    return `${date.day}-${date.month}-${date.year}`;
-  }
-}
-
-/**
- * This Service handles how the date is rendered and parsed from keyboard i.e. in the bound input field.
- */
-@Injectable()
-export class CustomDateParserFormatter extends NgbDateParserFormatter {
-
-  readonly DELIMITER = '/';
-
-  parse(value: string): NgbDateStruct {
-    let result: any = null;
-    if (value) {
-      let date = value.split(this.DELIMITER);
-      result = {
-        day: parseInt(date[0], 10),
-        month: parseInt(date[1], 10),
-        year: parseInt(date[2], 10)
-      };
-    }
-    return result;
-  }
-
-  format(date: NgbDateStruct): string {
-    let result: any = null;
-    if (date) {
-      result = date.day + this.DELIMITER + date.month + this.DELIMITER + date.year;
-    }
-    return result;
-  }
-}
 
 @Component({
   selector: 'app-courses-modal',
@@ -87,21 +19,11 @@ export class CoursesModalComponent implements OnInit {
 
   @Output() onSaveTask = new EventEmitter();
   @Input() taskInformation = null;
-  public titleModal: any = 'Gestionar tareas';
-  public hoveredDate: NgbDate | null = null;
-  public fromDate: NgbDate;
-  public toDate: NgbDate | null = null;
+  public titleModal: any = 'Gestionar cursos';
 
-
-
-  public dateDatePickerYear;
-  public dateDatePickerMonth;
-  public dateDatePickerDate;
 
   /*******variables to task**** */
   public title: any;
-  public exp: any;
-  public priority: any = 'N';
   public content: any;
   public objectRequest: any;
   public loading: boolean;
@@ -109,8 +31,6 @@ export class CoursesModalComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    private calendar: NgbCalendar,
-    public formatter: NgbDateParserFormatter,
     private generalFunctionsService: GeneralFunctionsService,
     private courseService: CourseService
   ) { }
@@ -118,55 +38,15 @@ export class CoursesModalComponent implements OnInit {
 
 
   ngOnInit() {
-    this.setMinDateDatePicker();
     if (this.taskInformation) {
       this.editTask(this.taskInformation);
     }
 
   }
 
-  setMinDateDatePicker() {
-    let dateDatePicker = new Date();
-    this.dateDatePickerYear = dateDatePicker.getFullYear();
-    this.dateDatePickerMonth = dateDatePicker.getMonth() + 1;
-    this.dateDatePickerDate = dateDatePicker.getDate() + 1;
-  }
-
-
 
   close() {
     this.activeModal.dismiss('close');
-  }
-
-  /**NG DATEPICKER */
-
-
-  onDateSelection(date: NgbDate) {
-    if (!this.fromDate && !this.toDate) {
-      this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && date && date.after(this.fromDate)) {
-      this.toDate = date;
-    } else {
-      this.toDate = null;
-      this.fromDate = date;
-    }
-  }
-
-  isHovered(date: NgbDate) {
-    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
-  }
-
-  isInside(date: NgbDate) {
-    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
-  }
-
-  isRange(date: NgbDate) {
-    return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
-  }
-
-  validateInput(currentValue: NgbDate | null, input: string): NgbDate | null {
-    const parsed = this.formatter.parse(input);
-    return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
   }
 
   /********************CRUD SERVICES******************* */
@@ -175,8 +55,6 @@ export class CoursesModalComponent implements OnInit {
 
 
     $("#title").removeClass("is-invalid");
-    $("#exp").removeClass("is-invalid");
-    $("#priority").removeClass("is-invalid");
     $("#content").removeClass("is-invalid");
 
 
@@ -184,28 +62,6 @@ export class CoursesModalComponent implements OnInit {
       this.generalFunctionsService.notifications('Debe ingresar un nombre', 'error');
       let element = document.getElementById("title");
       $("#title").addClass("is-invalid");
-      if (element) {
-        element.focus();
-      }
-      return;
-    }
-
-
-    if (this.exp == null || this.exp == '') {
-      this.generalFunctionsService.notifications('Debe ingresar una fecha de vencimiento', 'error');
-      let element = document.getElementById("exp");
-      $("#exp").addClass("is-invalid");
-      if (element) {
-        element.focus();
-      }
-      return;
-    }
-
-
-    if (this.priority == null || this.priority == '') {
-      this.generalFunctionsService.notifications('Debe ingresar un nombre', 'error');
-      let element = document.getElementById("priority");
-      $("#priority").addClass("is-invalid");
       if (element) {
         element.focus();
       }
@@ -236,8 +92,6 @@ export class CoursesModalComponent implements OnInit {
     {
       "title": this.title.toString(),
       "content": this.content,
-      "priority": this.priority,
-      "exp": `${this.exp.year}-${this.generalFunctionsService.addZero((this.exp.month))}-${this.generalFunctionsService.addZero((this.exp.day))}`
     };
 
     if (this.taskInformation) {
@@ -292,35 +146,17 @@ export class CoursesModalComponent implements OnInit {
   }
 
 
-
-
-
   deleteFields() {
     this.objectRequest = null;
     this.taskInformation = null;
     this.title = null;
-    this.exp = null;
-    this.priority = null;
     this.content = null;
   }
-
-
-
   /******************PERCENTAGE***************** */
 
   editTask(taskContent) {
-
     this.title = taskContent.title;
-    this.priority = taskContent.priority;
     this.content = taskContent.content;
-    var formatStartDate = new Date(taskContent.exp + 'T00:00');
-    this.exp =
-    {
-      "year": formatStartDate.getFullYear(),
-      "month": (formatStartDate.getMonth() + 1),
-      "day": parseInt(this.generalFunctionsService.addZero(formatStartDate.getDate()))
-    };
-
   }
 
 }

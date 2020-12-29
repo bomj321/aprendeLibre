@@ -2,8 +2,6 @@ import { Injectable, Output, EventEmitter } from "@angular/core";
 import {
   HttpClient,
   HttpHeaders,
-  HttpErrorResponse,
-  HttpParams,
 } from "@angular/common/http";
 
 // import { Observable } from 'rxjs/Rx';
@@ -129,7 +127,7 @@ export class AuthenticationService {
 
   logOut() {
     localStorage.removeItem(this.localData.access_token);
-    localStorage.removeItem(this.localData.currentUser);    
+    localStorage.removeItem(this.localData.currentUser);
     this.router.navigate(["/"]);
   }
 

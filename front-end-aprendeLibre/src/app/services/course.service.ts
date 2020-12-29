@@ -13,17 +13,10 @@ export class CourseService {
     courses: this.server + "/courses"
   };
 
-
-
   constructor(
     private http: HttpClient,
     public authenticationService: AuthenticationService
   ) { }
-
-
-
-
-
 
   getCourses(idUser, page, searchParams) {
 

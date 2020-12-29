@@ -40,37 +40,12 @@
             <thead>
               <tr>
                 <th scope="col" class="text-center">Título</th>
-                <th scope="col" class="text-center">Prioridad</th>
-                <th scope="col" class="text-center">Vencimiento</th>
                 <th scope="col" class="text-center">Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let task of courses.courses; let i = index">
                 <td class="text-center">{{ task.title }}</td>
-                <td class="text-center">
-                  <span
-                    *ngIf="task.priority == 'H'"
-                    class="badge m-auto badge-pill bg-danger text-white"
-                    >Alta</span
-                  >
-                  <span
-                    *ngIf="task.priority == 'M'"
-                    class="badge m-auto badge-pill bg-warning text-white"
-                    >Media</span
-                  >
-                  <span
-                    *ngIf="task.priority == 'L'"
-                    class="badge m-auto badge-pill bg-success text-white"
-                    >Baja</span
-                  >
-                  <span
-                    *ngIf="task.priority == 'N'"
-                    class="badge m-auto badge-pill bg-primary text-white"
-                    >No asignada</span
-                  >
-                </td>
-                <td class="text-center">{{ task.exp | date: "mediumDate" }}</td>
 
                 <td class="text-center">
                   <button
