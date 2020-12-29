@@ -12,9 +12,9 @@ export const DashboardRoutes: Routes = [
         component: DashboardComponent,
         canActivate: [UrlAuthGuard],
         data: {
-          title: 'Tablero principal',
+          title: 'Curso principal',
           urls: [
-            { title: 'Tablero principal', url: '/dashboard' }
+            { title: 'Curso principal', url: '/dashboard' }
           ]
         }
       }

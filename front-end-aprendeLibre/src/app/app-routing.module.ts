@@ -12,9 +12,9 @@ export const AppRoutes: Routes = [
   },
 
   {
-    path: 'lists-tasks',
+    path: 'lists-courses',
     component: FullComponent,
-    loadChildren: () => import('./list-tasks/list-tasks.module').then(m => m.ListTasksModule)
+    loadChildren: () => import('./list-courses/list-courses.module').then(m => m.ListCoursesModule)
   },
 
   {

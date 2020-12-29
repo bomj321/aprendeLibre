@@ -12,13 +12,13 @@ export const ListRoutes: Routes = [
         component: DashboardComponent,
         canActivate: [UrlAuthGuard],
         data: {
-          title: 'Listado de tareas',
+          title: 'Listado de cursos',
           urls: [
-            { title: 'Listado de tareas', url: '/lists-tasks' },
+            { title: 'Listado de cursos', url: '/lists-courses' },
           ]
         }
       }
-  
+
     ]
   }
 ];

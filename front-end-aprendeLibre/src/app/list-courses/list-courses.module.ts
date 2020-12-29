@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ListRoutes } from './list-tasks.routing';
+import { ListRoutes } from './list-courses.routing';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../_interceptors/auth.interceptor';
@@ -20,7 +20,7 @@ import { AuthenticationService } from "../services/authentication.service";
   ],
   declarations: [
     DashboardComponent
-    ],
+  ],
   providers:
     [
       UrlAuthGuard,
@@ -33,4 +33,4 @@ import { AuthenticationService } from "../services/authentication.service";
 
     ]
 })
-export class ListTasksModule { }
+export class ListCoursesModule { }

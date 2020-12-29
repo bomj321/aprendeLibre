@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: [
       {
         path: '/dashboard',
-        title: 'Tablero principal',
+        title: 'Curso Principal',
         icon: '',
         class: '',
         label: '',
@@ -21,8 +21,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
       },
       {
-        path: '/lists-tasks',
-        title: 'Listado de tareas',
+        path: '/lists-courses',
+        title: 'Listado de cursos',
         icon: '',
         class: '',
         label: '',

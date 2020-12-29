@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 /******MODALS*** */
-import { TasksModalComponent } from '../..//modals/tasks-modal/tasks-modal.component';
+import { TasksModalComponent } from '../../modals/tasks-modal/tasks-modal.component';
 
 
 declare var require: any;
