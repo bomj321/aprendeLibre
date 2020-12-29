@@ -5,8 +5,7 @@ Email: niravjoshi87@gmail.com
 File: scss
 */
 
-@import 'variable';
-
+@import "variable";
 
 /*============================================================== 
  For all pages 
@@ -32,16 +31,14 @@ File: scss
 .page-wrapper {
   background: $bodycolor;
   padding-bottom: 60px;
-  height: calc(100vh - 64px); 
+  height: calc(100vh - 64px);
   position: relative;
-    overflow: auto;
+  overflow: auto;
 }
 
 .container-fluid {
   padding: 25px;
 }
-
-
 
 /*******************
  Topbar
@@ -73,13 +70,13 @@ File: scss
         }
       }
     }
-    .navbar-nav>.nav-item>.nav-link {
-      padding-left: .75rem;
-      padding-right: .75rem;
+    .navbar-nav > .nav-item > .nav-link {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
       font-size: 15px;
       line-height: 40px;
     }
-    .navbar-nav>.nav-item.show {
+    .navbar-nav > .nav-item.show {
       background: $dark-transparent;
     }
   }
@@ -197,50 +194,45 @@ File: scss
 *******************/
 
 .page-titles {
-    
-    padding-bottom: 30px;
-    h3 {
-        margin-bottom: 0px;
-        margin-top: 0px;
+  padding-bottom: 30px;
+  h3 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .breadcrumb {
+    padding: 0px;
+    margin-bottom: 0px;
+    background: transparent;
+    font-size: 14px;
+    li {
+      margin-top: 0px;
+      margin-bottom: 0px;
     }
-    .breadcrumb {
-        padding: 0px;
-        margin-bottom:0px;
-        background: transparent;
-        font-size: 14px;
-        li {
-            margin-top: 0px;
-            margin-bottom: 0px;
-        }
-        .breadcrumb-item+.breadcrumb-item::before {
-            content: "\e649";
-            font-family: themify;
-            color: $light-text;
-            font-size: 11px;
-        }
-        .breadcrumb-item.active {
-            color: $muted;
-        }
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "\e649";
+      font-family: themify;
+      color: $light-text;
+      font-size: 11px;
     }
+    .breadcrumb-item.active {
+      color: $muted;
+    }
+  }
 }
-
-
 
 /*******************
  Right side toggle
 *******************/
 
-
 .right-side-toggle {
   position: relative;
-     
 }
-.btn-circle.right-side-toggle{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  padding:25px;
-  z-index:10;
+.btn-circle.right-side-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 25px;
+  z-index: 10;
 }
 .right-side-toggle i {
   -webkit-transition-property: -webkit-transform;
@@ -249,7 +241,7 @@ File: scss
   -moz-transition-duration: 1s;
   transition-property: transform;
   transition-duration: 1s;
-  
+
   position: absolute;
   top: 16px;
   left: 16px;
@@ -284,10 +276,10 @@ File: scss
     }
   }
   .r-panel-body {
-    height:100%;
+    height: 100%;
     position: absolute;
     width: 100%;
-    padding-bottom: 40px;  
+    padding-bottom: 40px;
     ul {
       margin: 0px;
       padding: 0px 20px;
@@ -305,9 +297,6 @@ File: scss
   display: block;
 }
 
-
-
-
 /*******************
  Footer
 *******************/
@@ -322,8 +311,6 @@ File: scss
   border-top: 1px solid $border;
   background: $white;
 }
-
-
 
 /*******************
  Card title
@@ -342,43 +329,43 @@ File: scss
 .card-inverse .card-link,
 .card-inverse .card-subtitle,
 .card-inverse .card-text {
-  color: rgba(255, 255, 255, .65);
+  color: rgba(255, 255, 255, 0.65);
 }
-html body .card{
-&.card-success {
-  background: $success;
-  border-color: $success;
-}
+html body .card {
+  &.card-success {
+    background: $success;
+    border-color: $success;
+  }
 
-&.card-danger {
-  background: $danger;
-  border-color: $danger;
-}
+  &.card-danger {
+    background: $danger;
+    border-color: $danger;
+  }
 
-&.card-warning {
-  background: $warning;
-  border-color: $warning;
-}
+  &.card-warning {
+    background: $warning;
+    border-color: $warning;
+  }
 
-&.card-info {
-  background: $info;
-  border-color: $info;
-}
+  &.card-info {
+    background: $info;
+    border-color: $info;
+  }
 
-&.card-primary {
-  background: $primary;
-  border-color: $primary;
-}
+  &.card-primary {
+    background: $primary;
+    border-color: $primary;
+  }
 
-&.card-dark {
-  background: $inverse;
-  border-color: $inverse;
-}
+  &.card-dark {
+    background: $inverse;
+    border-color: $inverse;
+  }
 
-&.card-megna {
-  background: $megna;
-  border-color: $megna;
-}
+  &.card-megna {
+    background: $megna;
+    border-color: $megna;
+  }
 }
 /*============================================================== 
  Cards page
@@ -403,8 +390,8 @@ html body .card{
 }
 
 .collapsing {
-  -webkit-transition: height .08s ease;
-  transition: height .08s ease;
+  -webkit-transition: height 0.08s ease;
+  transition: height 0.08s ease;
 }
 
 .card-info {
@@ -495,7 +482,6 @@ html body .card{
   }
 }
 
-
 /*============================================================== 
 Breadcrumb
  ============================================================== */
@@ -508,7 +494,7 @@ Breadcrumb
       opacity: 0.7;
     }
   }
-  .breadcrumb-item+.breadcrumb-item::before {
+  .breadcrumb-item + .breadcrumb-item::before {
     color: rgba(255, 255, 255, 0.4);
   }
 }
@@ -516,8 +502,6 @@ Breadcrumb
 .breadcrumb {
   margin-bottom: 0px;
 }
-
-
 
 /*============================================================== 
  Ui-bootstrap
@@ -558,8 +542,6 @@ ul.two-part {
   }
 }
 
-
-
 /*Accordion*/
 
 html body .accordion {
@@ -568,16 +550,14 @@ html body .accordion {
   }
 }
 
-
-
 /*============================================================== 
  sparkline chart
  ============================================================== */
 html body {
   .jqstooltip,
   .flotTip {
-    width: auto!important;
-    height: auto!important;
+    width: auto !important;
+    height: auto !important;
     background: $dark;
     color: $white;
     padding: 5px 10px;
@@ -589,30 +569,9 @@ body .jqstooltip {
   border-radius: 60px;
 }
 
-
-
-
-
-
-
 /*============================================================== 
 Dashboard1 chart
  ============================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*******************
 Pagination
@@ -643,9 +602,6 @@ Pagination
     color: $border;
   }
 }
-
-
-
 
 /*******************
 Table-Layout
@@ -887,7 +843,7 @@ Table-Layout
 }
 
 .full-color-table.full-dark-table {
-  background-color: rgba(43, 43, 43, .8);
+  background-color: rgba(43, 43, 43, 0.8);
   thead th {
     background-color: $dark;
     border: 0;
@@ -936,7 +892,7 @@ Table-Layout
 }
 
 .full-color-table.full-muted-table {
-  background-color: rgba(152, 166, 173, .2);
+  background-color: rgba(152, 166, 173, 0.2);
   thead th {
     background-color: $muted;
     border: 0;
@@ -950,10 +906,6 @@ Table-Layout
     color: $white;
   }
 }
-
-
-
-
 
 /*******************
 Table- editable table
@@ -984,7 +936,6 @@ Table- editable table
   }
 }
 
-
 /*******************
 Icon list fontawesom
 ******************/
@@ -1005,13 +956,13 @@ Icon list fontawesom
   }
   i {
     -webkit-transition: all 0.2s;
-    -webkit-transition: font-size .2s;
+    -webkit-transition: font-size 0.2s;
     display: inline-block;
     font-size: 18px;
     margin: 0 15px 0 10px;
     text-align: left;
     transition: all 0.2s;
-    transition: font-size .2s;
+    transition: font-size 0.2s;
     vertical-align: middle;
     transition: all 0.3s ease 0s;
   }
@@ -1028,8 +979,6 @@ Icon list fontawesom
   font-size: 2em;
 }
 
-
-
 /*******************
 Icon list material icon
 ******************/
@@ -1037,9 +986,6 @@ Icon list material icon
 .material-icon-list-demo .mdi {
   font-size: 21px;
 }
-
-
-
 
 /*******************
 list and media
@@ -1066,8 +1012,6 @@ list and media
   padding: 15px;
 }
 
-
-
 /*******************
 Timeline page
 ******************/
@@ -1091,32 +1035,32 @@ Timeline page
   background-color: $light;
 }
 
-.timeline>li {
+.timeline > li {
   position: relative;
   margin-bottom: 20px;
 }
 
-.timeline>li:before,
-.timeline>li:after {
+.timeline > li:before,
+.timeline > li:after {
   content: " ";
   display: table;
 }
 
-.timeline>li:after {
+.timeline > li:after {
   clear: both;
 }
 
-.timeline>li:before,
-.timeline>li:after {
+.timeline > li:before,
+.timeline > li:after {
   content: " ";
   display: table;
 }
 
-.timeline>li:after {
+.timeline > li:after {
   clear: both;
 }
 
-.timeline>li>.timeline-panel {
+.timeline > li > .timeline-panel {
   float: left;
   position: relative;
   width: 46%;
@@ -1127,7 +1071,7 @@ Timeline page
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
 }
 
-.timeline>li>.timeline-panel:before {
+.timeline > li > .timeline-panel:before {
   content: " ";
   display: inline-block;
   position: absolute;
@@ -1139,7 +1083,7 @@ Timeline page
   border-left: 8px solid $border;
 }
 
-.timeline>li>.timeline-panel:after {
+.timeline > li > .timeline-panel:after {
   content: " ";
   display: inline-block;
   position: absolute;
@@ -1151,7 +1095,7 @@ Timeline page
   border-left: 7px solid $white;
 }
 
-.timeline>li>.timeline-badge {
+.timeline > li > .timeline-badge {
   z-index: 10;
   position: absolute;
   top: 16px;
@@ -1167,18 +1111,18 @@ Timeline page
   overflow: hidden;
 }
 
-.timeline>li.timeline-inverted>.timeline-panel {
+.timeline > li.timeline-inverted > .timeline-panel {
   float: right;
 }
 
-.timeline>li.timeline-inverted>.timeline-panel:before {
+.timeline > li.timeline-inverted > .timeline-panel:before {
   right: auto;
   left: -8px;
   border-right-width: 8px;
   border-left-width: 0;
 }
 
-.timeline>li.timeline-inverted>.timeline-panel:after {
+.timeline > li.timeline-inverted > .timeline-panel:after {
   right: auto;
   left: -7px;
   border-right-width: 7px;
@@ -1211,17 +1155,14 @@ Timeline page
   font-weight: 400;
 }
 
-.timeline-body>p,
-.timeline-body>ul {
+.timeline-body > p,
+.timeline-body > ul {
   margin-bottom: 0;
 }
 
-.timeline-body>p+p {
+.timeline-body > p + p {
   margin-top: 5px;
 }
-
-
-
 
 /*******************
 Error Page
@@ -1230,7 +1171,8 @@ Error Page
 .error-box {
   height: 100%;
   position: fixed;
-  background: url(../../assets/images/background/error-bg.jpg) no-repeat center center #fff;
+  background: url(../../assets/resources/background/error-bg.jpg) no-repeat
+    center center #fff;
   width: 100%;
   .footer {
     width: 100%;
@@ -1247,10 +1189,6 @@ Error Page
     line-height: 210px;
   }
 }
-
-
-
-
 
 /*******************
 Login register and recover password Page
@@ -1294,9 +1232,6 @@ Login register and recover password Page
   }
 }
 
-
-
-
 /*******************
 Pricing Page
 ******************/
@@ -1337,7 +1272,7 @@ Pricing Page
     position: absolute;
     font-size: 15px;
     top: -10px;
-    margin-left: -10px
+    margin-left: -10px;
   }
 }
 
@@ -1366,12 +1301,6 @@ Pricing Page
   right: 0px;
 }
 
-
-
-
-
-
-
 /*Documentation page*/
 
 .plugin-details {
@@ -1394,49 +1323,49 @@ Pricing Page
   }
 }
 
-
-.btn-link{
-  border:0px;
+.btn-link {
+  border: 0px;
 }
 /*******************
 Smart table
 ******************/
-.smart-table tr td, .smart-table tr th{
-    padding:15px!important;
+.smart-table tr td,
+.smart-table tr th {
+  padding: 15px !important;
 }
-.ng2-smart-action-add-add{
-   color:$white!important;
-   background: $themecolor;
-   padding: 8px 15px;    
-   border-radius: $radius;    
+.ng2-smart-action-add-add {
+  color: $white !important;
+  background: $themecolor;
+  padding: 8px 15px;
+  border-radius: $radius;
 }
-.ng2-smart-pagination-nav{
-    margin-left: auto;
+.ng2-smart-pagination-nav {
+  margin-left: auto;
 }
 .ng2-smart-pagination-nav .pagination > li > a {
-    line-height: 1rem;
-} 
+  line-height: 1rem;
+}
 
 /*******************
 NGX Data table
 ******************/
-@import '~@swimlane/ngx-datatable/release/themes/material.css';
-@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+@import "~@swimlane/ngx-datatable/release/themes/material.css";
+@import "~@swimlane/ngx-datatable/release/assets/icons.css";
 .ngx-datatable.material {
- box-shadow:none!important;
-    border:1px solid $border;
+  box-shadow: none !important;
+  border: 1px solid $border;
 }
 
 /*******************
 Chartistt chart css
 ******************/
-.barchrt{
-    .ct-series-a .ct-bar{
-        stroke:$success;
-    }
-    .ct-series-b .ct-bar{
-        stroke:$info;
-    }
+.barchrt {
+  .ct-series-a .ct-bar {
+    stroke: $success;
+  }
+  .ct-series-b .ct-bar {
+    stroke: $info;
+  }
 }
 
 .linearea {
@@ -1470,26 +1399,26 @@ Chartistt chart css
   }
   .ct-series-a .ct-point,
   .ct-series-b .ct-point,
-  .ct-series-c .ct-point{
+  .ct-series-c .ct-point {
     stroke-width: 6px;
   }
 }
-.piechart{
-    .ct-series-a .ct-slice-donut{
-        stroke:$info
-    }
-    .ct-series-b .ct-slice-donut{
-        stroke:$success
-    }
-    .ct-series-c .ct-slice-donut{
-        stroke:$inverse
-    }
-    .ct-series-d .ct-slice-donut{
-        stroke:$danger
-    }
-    .ct-series-e .ct-slice-donut{
-        stroke:$warning
-    }
+.piechart {
+  .ct-series-a .ct-slice-donut {
+    stroke: $info;
+  }
+  .ct-series-b .ct-slice-donut {
+    stroke: $success;
+  }
+  .ct-series-c .ct-slice-donut {
+    stroke: $inverse;
+  }
+  .ct-series-d .ct-slice-donut {
+    stroke: $danger;
+  }
+  .ct-series-e .ct-slice-donut {
+    stroke: $warning;
+  }
 }
 
 /*******************
@@ -1591,37 +1520,40 @@ Taskboard scss
 /*Activity widgets*/
 /*******************/
 
-.activity-box{
-    .date-devider{
-        border-top:2px solid $border;
-        position:relative;
-        span{
-            background:$light;
-            padding:5px 15px;
-            border-radius:60px;
-            font-size:14px;
-            top:-15px;
-            position:relative;
-            margin-left:20px;
-        }
+.activity-box {
+  .date-devider {
+    border-top: 2px solid $border;
+    position: relative;
+    span {
+      background: $light;
+      padding: 5px 15px;
+      border-radius: 60px;
+      font-size: 14px;
+      top: -15px;
+      position: relative;
+      margin-left: 20px;
     }
-    .activity-item{
-        display:flex;
-        margin-bottom:30px;
-        .image-list{
-            > a{
-                margin-left:-15px;
-                position:relative;
-                vertical-align:middle;
-                
-                &:first-child, &:last-child{
-                    margin-left:0px;
-                }
-                &:hover{
-                    z-index:10;
-                    img{box-shadow:0 2px 15px rgba(0, 0, 0, 0.2);}
-                }
-            }
+  }
+  .activity-item {
+    display: flex;
+    margin-bottom: 30px;
+    .image-list {
+      > a {
+        margin-left: -15px;
+        position: relative;
+        vertical-align: middle;
+
+        &:first-child,
+        &:last-child {
+          margin-left: 0px;
         }
+        &:hover {
+          z-index: 10;
+          img {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
     }
+  }
 }
